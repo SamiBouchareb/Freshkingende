@@ -49,15 +49,28 @@ export function TeslaBot({ id }: TeslaBotProps) {
           </p>
         </motion.div>
 
-        <div className="relative mb-16 rounded-2xl overflow-hidden shadow-2xl">
-          <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              src="https://www.youtube.com/embed/DrNcXgoFv20"
-              title="Tesla Bot Presentation"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://www.youtube.com/embed/DrNcXgoFv20"
+                title="Tesla Bot Presentation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="aspect-w-9 aspect-h-16 md:aspect-w-16 md:aspect-h-9">
+              <iframe
+                src="https://www.youtube.com/embed/rpWQbBYpaUw"
+                title="Tesla Bot in Action"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
           </div>
         </div>
 
