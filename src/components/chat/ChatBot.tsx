@@ -403,7 +403,7 @@ Always be precise, professional, and solution-oriented.`,
   const sendMessage = async (messageContent: string) => {
     try {
       // Replace this with your actual API key locally
-      const API_KEY = 'YOUR_GEMINI_API_KEY';
+      const API_KEY = 'AIzaSyBC_gTcx1nbjeTTDUd80DxVuDek6ShPeV8';
       const genAI = new GoogleGenerativeAI(API_KEY);
       const model = genAI.getGenerativeModel({ 
         model: "gemini-pro",
