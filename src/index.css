@@ -1,0 +1,462 @@
+/* Tailwind directives */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+  @media (min-width: 768px) {
+    /* Base styles */
+    html, body {
+      cursor: default;
+    }
+
+    /* Reset cursor for clickable elements */
+    a, 
+    button,
+    [role="button"],
+    select,
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    .clickable,
+    [onclick] {
+      cursor: pointer;
+    }
+  }
+
+  /* Cart animation styles */
+  .cart-item-clone {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.6s cubic-bezier(0.2, 0.6, 0.2, 1.5);
+    transform-origin: center center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Animations */
+  @keyframes trailFade {
+    from {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.2);
+    }
+  }
+
+  @keyframes addToCartFloat {
+    0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.6) rotate(5deg) translateY(-20px);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(0.3) rotate(0deg) translateY(0);
+      opacity: 0;
+    }
+  }
+
+  /* Cart bump animation */
+  @keyframes cartBump {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.2);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    75% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .cart-bump {
+    animation: cartBump 0.3s ease-in-out;
+  }
+
+  /* Infinite Scroll Animation */
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Mission Section Animations */
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slow-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 25s linear infinite;
+}
+
+.animate-slow-spin-reverse {
+  animation: slow-spin-reverse 30s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #22c55e 0%, #059669 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Card animations */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Background blur effects */
+.blur-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Enhanced dish card animations */
+.dish-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+}
+
+.dish-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(34, 197, 94, 0),
+    rgba(34, 197, 94, 0.3),
+    rgba(34, 197, 94, 0)
+  );
+  border-radius: 1rem;
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  filter: blur(8px);
+}
+
+.dish-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    45deg,
+    rgba(34, 197, 94, 0.2),
+    rgba(34, 197, 94, 0.1),
+    rgba(34, 197, 94, 0.2)
+  );
+  border-radius: 1rem;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dish-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.dish-card:hover::before {
+  opacity: 1;
+  filter: blur(12px);
+}
+
+.dish-card:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced image hover effect */
+.dish-image {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dish-card:hover .dish-image {
+  transform: scale(1.1);
+}
+
+/* Button hover effects */
+.cart-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cart-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    circle,
+    rgba(34, 197, 94, 0.4) 0%,
+    transparent 50%
+  );
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cart-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Quantity controls hover effect */
+.quantity-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: none;
+}
+
+.quantity-button:hover:not(:disabled) {
+  background-color: rgb(34, 197, 94, 0.1);
+  border-color: rgb(34, 197, 94);
+  color: rgb(34, 197, 94);
+}
+
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Infinite Scroll Animation */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 120s linear infinite;
+  min-width: fit-content;
+}
+
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Typing animation */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 8px 0;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.typing-indicator:hover {
+  opacity: 1;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 50%;
+  animation: dotBounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Message Animations */
+.typing-message {
+  animation: messageAppear 0.3s ease-out;
+}
+
+.typing-bubble {
+  position: relative;
+}
+
+.typing-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  animation: typingLine 2s infinite;
+  opacity: 0.5;
+}
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typingLine {
+  0% {
+    width: 0;
+    left: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* Investor Love Button */
+.investor-love-button {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3), 0 4px 6px -4px rgba(34, 197, 94, 0.3);
+  animation: buttonPulse 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.investor-love-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+.investor-love-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(34, 197, 94, 0.4), 0 8px 10px -6px rgba(34, 197, 94, 0.4);
+  background: linear-gradient(135deg, #15803d 0%, #16a34a 50%, #22c55e 100%);
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s infinite;
+}
