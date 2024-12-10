@@ -136,7 +136,7 @@ export function CartDropdown({ isOpen, onClose }: CartDropdownProps) {
                                                 <p className="text-sm text-gray-500 mb-2">{item.description}</p>
                                                 <div className="flex items-center justify-between">
                                                     <span className="font-semibold text-green-600">
-                                                        ${item.price.toFixed(2)}
+                                                        {item.price.toFixed(2)}€
                                                     </span>
                                                     <div className="flex items-center gap-3">
                                                         <button
@@ -179,7 +179,7 @@ export function CartDropdown({ isOpen, onClose }: CartDropdownProps) {
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="text-gray-600">Total</span>
                                     <span className="text-2xl font-bold text-gray-900">
-                                        ${getTotalPrice().toFixed(2)}
+                                        {getTotalPrice().toFixed(2)}€
                                     </span>
                                 </div>
                                 <button

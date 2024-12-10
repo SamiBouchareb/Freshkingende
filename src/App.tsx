@@ -12,6 +12,7 @@ import { Checkout } from './components/checkout/Checkout';
 import { RewardsPage } from './pages/RewardsPage';
 import { AuthProvider } from './context/AuthContext';
 import { InvestorPage } from './pages/InvestorPage';
+import { AdvertisementPage } from './pages/AdvertisementPage';
 import ChatBot from './components/chat/ChatBot';
 import { TeslaBot } from './components/home/TeslaBot';
 
@@ -36,9 +37,11 @@ function App() {
                       <TeslaBot id="tesla-bot" />
                     </>
                   } />
+                  <Route path="/menu" element={<Menu id="menu" />} />
                   <Route path="/rewards" element={<RewardsPage />} />
                   <Route path="/checkout" element={<Checkout />} />
                   <Route path="/investors" element={<InvestorPage />} />
+                  <Route path="/advertisement" element={<AdvertisementPage />} />
                 </Routes>
               </main>
               <Footer />

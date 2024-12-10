@@ -99,7 +99,7 @@ const OrderSummaryItem = ({ item, quantity }: { item: any; quantity: number }) =
       <h4 className="font-medium text-gray-900">{item.name}</h4>
       <p className="text-sm text-gray-500">Quantity: {quantity}</p>
     </div>
-    <p className="font-medium text-gray-900">${(item.price * quantity).toFixed(2)}</p>
+    <p className="font-medium text-gray-900">{(item.price * quantity).toFixed(2)}€</p>
   </motion.div>
 );
 
@@ -507,7 +507,7 @@ export function Checkout() {
               <div className="border-t border-gray-200 mt-6 pt-6 space-y-3">
                 <div className="flex justify-between text-gray-500">
                   <span>Subtotal</span>
-                  <span>${getTotalPrice().toFixed(2)}</span>
+                  <span>${getTotalPrice().toFixed(2)}€</span>
                 </div>
                 <div className="flex justify-between text-gray-500">
                   <span>Shipping</span>
@@ -515,7 +515,7 @@ export function Checkout() {
                 </div>
                 <div className="flex justify-between text-lg font-semibold text-gray-900">
                   <span>Total</span>
-                  <span>${getTotalPrice().toFixed(2)}</span>
+                  <span>${getTotalPrice().toFixed(2)}€</span>
                 </div>
               </div>
               <div className="mt-6 bg-gray-50 rounded-xl p-4">

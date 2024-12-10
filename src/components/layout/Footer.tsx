@@ -74,6 +74,15 @@ export function Footer() {
         { name: "Terms of Service", href: "#" },
       ],
     },
+    {
+      title: 'Company',
+      links: [
+        { name: 'About Us', href: '#' },
+        { name: 'Careers', href: '#' },
+        { name: 'Investors', href: '#' },
+        { name: 'Advertisement', href: '/advertisement' },
+      ]
+    },
   ];
 
   return (
