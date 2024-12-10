@@ -3,6 +3,12 @@ import { Leaf, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, Arrow
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
+interface FooterLink {
+  name: string;
+  href?: string;
+  onClick?: () => void;
+}
+
 interface NewsletterState {
   email: string;
   status: 'idle' | 'loading' | 'success' | 'error';
@@ -79,8 +85,8 @@ export function Footer() {
       links: [
         { name: 'About Us', href: '#' },
         { name: 'Careers', href: '#' },
-        { name: 'Investors', href: '#' },
-        { name: 'Advertisement', href: '/advertisement' },
+        { name: 'Investors', onClick: () => navigate('/investors') },
+        { name: 'Advertisement', onClick: () => navigate('/advertisement') },
       ]
     },
   ];
@@ -243,15 +249,44 @@ export function Footer() {
                   {linkGroup.title}
                 </h3>
                 <ul className="space-y-3">
-                  {linkGroup.links.map((link) => (
-                    <motion.li key={link.name} whileHover={{ x: 5 }}>
-                      <a 
-                        href={link.href}
-                        className="text-gray-400 hover:text-white flex items-center space-x-2 group transition-colors duration-300"
-                      >
-                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <span>{link.name}</span>
-                      </a>
+                  {linkGroup.links.map((link, linkIndex) => (
+                    <motion.li
+                      key={link.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: linkIndex * 0.1 }}
+                      onMouseEnter={() => setHoveredLink(link.name)}
+                      onMouseLeave={() => setHoveredLink(null)}
+                      className="relative group"
+                    >
+                      {link.onClick ? (
+                        <button
+                          onClick={link.onClick}
+                          className={`text-gray-400 hover:text-white transition-colors duration-300 ${
+                            hoveredLink === link.name ? 'text-white' : ''
+                          }`}
+                        >
+                          {link.name}
+                        </button>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className={`text-gray-400 hover:text-white transition-colors duration-300 ${
+                            hoveredLink === link.name ? 'text-white' : ''
+                          }`}
+                        >
+                          {link.name}
+                        </a>
+                      )}
+                      {hoveredLink === link.name && (
+                        <motion.div
+                          layoutId="hoverIndicator"
+                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-green-500"
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          exit={{ scaleX: 0 }}
+                        />
+                      )}
                     </motion.li>
                   ))}
                 </ul>
