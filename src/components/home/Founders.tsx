@@ -1,5 +1,9 @@
 import React from 'react';
-import samiImage from '../../assets/images/founder.jpg';
+import louisImage from '../../assets/images/founders/Louis.jpg';
+import nicoImage from '../../assets/images/founders/Nico.jpg';
+import seidImage from '../../assets/images/founders/Seid.jpg';
+import elzanImage from '../../assets/images/founders/Elzan.jpg';
+import samiImage from '../../assets/images/founders/Sami.jpg';
 
 interface Founder {
   name: string;
@@ -11,32 +15,32 @@ interface Founder {
 const founders: Founder[] = [
   {
     name: 'Louis',
-    role: 'Co-Founder & CEO',
-    description: 'Visionary leader driving FreshKing\'s mission to revolutionize fast food.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
+    role: 'Co-Founder & CFO',
+    description: 'Managing financial operations and ensuring fiscal responsibility.',
+    image: louisImage,
   },
   {
     name: 'Nico',
     role: 'Co-Founder & COO',
     description: 'Operations expert ensuring seamless delivery of quality food.',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop',
+    image: nicoImage,
   },
   {
     name: 'Seid',
-    role: 'Co-Founder & CTO',
-    description: 'Tech innovator streamlining our digital ordering experience.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop',
+    role: 'Co-Founder & Chief Strategy Officer',
+    description: 'Leading market analysis and developing strategies for sustainable growth.',
+    image: seidImage,
   },
   {
     name: 'Elzan',
-    role: 'Co-Founder & CMO',
-    description: 'Creative mind behind our brand and marketing strategies.',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop',
+    role: 'Co-Founder & Chief Vision Officer',
+    description: 'Driving investor relations and shaping the visionary future of our startup.',
+    image: elzanImage,
   },
   {
     name: 'Sami',
-    role: 'Co-Founder & CFO',
-    description: 'Financial strategist ensuring sustainable growth.',
+    role: 'Co-Founder & CMO/CTO',
+    description: 'Leading our marketing strategies and IT infrastructure development.',
     image: samiImage,
   },
 ];
