@@ -85,8 +85,8 @@ export function Footer() {
       links: [
         { name: 'About Us', href: '#' },
         { name: 'Careers', href: '#' },
-        { name: 'Investors', onClick: () => navigate('/investors') },
-        { name: 'Advertisement', onClick: () => navigate('/advertisement') },
+        { name: 'Investors', onClick: () => navigate('/#/investors') },
+        { name: 'Advertisement', onClick: () => navigate('/#/advertisement') },
       ]
     },
   ];

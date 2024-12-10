@@ -7,7 +7,7 @@ import { Locations } from './components/home/Locations';
 import { Footer } from './components/layout/Footer';
 import { CartProvider } from './context/CartContext';
 import { CustomCursor } from './components/common/CustomCursor';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Checkout } from './components/checkout/Checkout';
 import { RewardsPage } from './pages/RewardsPage';
 import { AuthProvider } from './context/AuthContext';
